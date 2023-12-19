@@ -39,10 +39,15 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 		this.iCiudadanoService.guardar(ciud);
 		
 		Empleado empl = new Empleado();
-		empl.setFechaIngreso(LocalDateTime.of(2020, 01, 17, 07, 50));
+		empl.setFechaIngreso(LocalDateTime.now());
 		empl.setSalario(new BigDecimal(450));
 		
 		//this.iEmpleadoService.guardar(empl);
+		
+		Ciudadano ciud2 = new Ciudadano();
+		
+		ciud2 = this.iCiudadanoService.buscar(1);
+		empl.setCiudadano(ciud2);
 	
 		
 		

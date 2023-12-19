@@ -18,4 +18,23 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
 	}
 
+	@Override
+	public Empleado buscar(Integer id) {
+		// TODO Auto-generated method stub
+		return this.iEmpleadoRepository.seleccionar(id);
+	}
+
+	@Override
+	public void actualizar(Empleado empleado) {
+		// TODO Auto-generated method stub
+		this.iEmpleadoRepository.actualizar(empleado);
+	}
+
+	@Override
+	public void borrar(Integer id) {
+		// TODO Auto-generated method stub
+		this.iEmpleadoRepository.eliminar(id);
+		
+	}
+
 }
