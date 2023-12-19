@@ -1,5 +1,6 @@
 package com.uce.edu;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +9,21 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.repository.modelo.Alumno;
+import com.uce.edu.repository.modelo.Ciudadano;
+import com.uce.edu.repository.modelo.Empleado;
 import com.uce.edu.repository.modelo.Estudiante;
 import com.uce.edu.service.IAlumnoService;
+import com.uce.edu.service.ICiudadanoService;
+import com.uce.edu.service.IEmpleadoService;
 import com.uce.edu.service.IEstudianteService;
 
 @SpringBootApplication
 public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Autowired
-	private IEstudianteService iEstudianteService;
+	private ICiudadanoService iCiudadanoService;
 	
 	@Autowired
-	private IAlumnoService iAlumnoService;
+	private IEmpleadoService iEmpleadoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5LrApplication.class, args);
@@ -26,32 +31,18 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		//1- seleccionar
-		/*
-		Estudiante estu = new Estudiante();
-		estu.setApellido("Jimenez");
-		estu.setCedula("1785789657");
-		estu.setNombre("Alejandro");
-		estu.setFechaNacimiento(LocalDateTime.of(2000, 07, 07, 07, 50));
 		
-		this.iEstudianteService.guardar(estu);
+		Ciudadano ciud = new Ciudadano();
+		ciud.setNombre("Leonardo");
+		ciud.setApellido("Ramirez");
 		
-		//2 buscar
-		Estudiante estu1 = this.iEstudianteService.buscar(4);
-		System.out.println(estu1);
-		// 3 Actualizar
-		estu1.setNombre("David");
-		this.iEstudianteService.actualizar(estu1);
+		this.iCiudadanoService.guardar(ciud);
 		
-		Alumno alum1= new Alumno();
-		alum1.setNombre("Victor");
-		this.iAlumnoService.guardar(alum1);
-		*/
-		Alumno alum2= this.iAlumnoService.buscar(3);
-		System.out.println(alum2);
+		Empleado empl = new Empleado();
+		empl.setFechaIngreso(LocalDateTime.of(2020, 01, 17, 07, 50));
+		empl.setSalario(new BigDecimal(450));
 		
-		this.iAlumnoService.borrar(2);
+		//this.iEmpleadoService.guardar(empl);
 	
 		
 		
