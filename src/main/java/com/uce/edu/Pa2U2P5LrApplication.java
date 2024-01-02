@@ -41,7 +41,7 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 		Empleado empl = new Empleado();
 		empl.setFechaIngreso(LocalDateTime.now());
 		empl.setSalario(new BigDecimal(450));
-		
+		empl.getClass();
 		//this.iEmpleadoService.guardar(empl);
 		
 		Ciudadano ciud2 = new Ciudadano();
