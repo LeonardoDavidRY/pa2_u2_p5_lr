@@ -10,6 +10,8 @@ public class HotelServiceImpl implements IHotelService {
 	
 	@Autowired
 	private IHotelRepository hotelRepository;
+	
+	//CRUD Hotel
 
 	@Override
 	public void guardar(Hotel hotel) {

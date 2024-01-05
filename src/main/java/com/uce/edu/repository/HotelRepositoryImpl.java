@@ -13,6 +13,8 @@ public class HotelRepositoryImpl implements IHotelRepository {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	//CRUD Hotel
 
 	@Override
 	public Hotel seleccionar(Integer id) {

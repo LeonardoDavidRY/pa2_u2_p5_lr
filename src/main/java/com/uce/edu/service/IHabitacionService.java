@@ -4,6 +4,8 @@ import com.uce.edu.repository.modelo.Habitacion;
 
 public interface IHabitacionService {
 	
+	//CRUD Habitacion
+	
     public Habitacion buscar(Integer id);
 	
 	public void guardar (Habitacion  habitacion);

@@ -9,6 +9,8 @@ import com.uce.edu.repository.modelo.Habitacion;
 public class HabitacionServiceImpl implements IHabitacionService {
 	@Autowired
 	private IHabitacionRepository habitacionRepository;
+	
+	//CRUD Habitacion
 
 	@Override
 	public Habitacion buscar(Integer id) {

@@ -13,6 +13,8 @@ public class HabitacionRepositoryImpl implements IHabitacionRepository{
 	
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	//CRUD Habitacion
 
 	@Override
 	public Habitacion seleccionar(Integer id) {

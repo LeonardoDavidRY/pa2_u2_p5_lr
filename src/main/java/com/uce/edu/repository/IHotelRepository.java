@@ -4,6 +4,8 @@ import com.uce.edu.repository.modelo.Hotel;
 
 public interface IHotelRepository {
 	
+	//CRUD Hotel
+	
     public Hotel seleccionar(Integer id);
 	
 	public void insertar (Hotel  hotel);

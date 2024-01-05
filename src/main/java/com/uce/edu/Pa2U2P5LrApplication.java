@@ -20,6 +20,7 @@ import com.uce.edu.service.IAlumnoService;
 import com.uce.edu.service.ICiudadanoService;
 import com.uce.edu.service.IEmpleadoService;
 import com.uce.edu.service.IEstudianteService;
+import com.uce.edu.service.IHabitacionService;
 import com.uce.edu.service.IHotelService;
 
 @SpringBootApplication
@@ -32,6 +33,9 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	
 	@Autowired
 	private IHotelService iHotelService;
+	
+	@Autowired
+	private IHabitacionService iHabitacionService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5LrApplication.class, args);
@@ -94,6 +98,30 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 		hotel.setHabitaciones(habitaciones);
 		
 		this.iHotelService.guardar(hotel);
+		
+		Hotel hotel2 = new Hotel();
+		Habitacion habi3 = new Habitacion();
+		habi3.setClase("Economica");
+		habi3.setNumero("B1");
+		habi3.setHotel(hotel2);
+		
+		Habitacion habi4 = new Habitacion();
+		habi4.setClase("Economica");
+		habi4.setNumero("A2");
+		habi4.setHotel(hotel2);
+		
+		List<Habitacion> habitaciones2 = new ArrayList<>();
+		habitaciones2.add(habi3);
+		habitaciones2.add(habi4);
+		
+		hotel2.setDireccion("Av. Florida");
+		hotel2.setNombre("Vista del Mar ");
+		hotel2.setHabitaciones(habitaciones2);
+		
+		this.iHotelService.guardar(hotel2);
+		this.iHabitacionService.buscar(5);
+		habi4.setNumero("B2");
+		this.iHabitacionService.actualizar(habi4);
 		
 	}
 
