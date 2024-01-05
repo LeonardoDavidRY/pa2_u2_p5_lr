@@ -30,12 +30,14 @@ public class HotelRepositoryImpl implements IHotelRepository {
 	@Override
 	public void actualizar(Hotel hotel) {
 		// TODO Auto-generated method stub
-
+		this.entityManager.merge(hotel);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
+		Hotel hotel = this.seleccionar(id);
+		this.entityManager.remove(hotel);
 
 	}
 
