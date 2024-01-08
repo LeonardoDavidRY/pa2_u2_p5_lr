@@ -14,7 +14,7 @@ public class LibroServiceImpl implements ILibroService {
 	@Override
 	public Libro buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.libroRepository.seleccionar(id);
 	}
 
 	@Override
@@ -27,12 +27,14 @@ public class LibroServiceImpl implements ILibroService {
 	@Override
 	public void actualizar(Libro libro) {
 		// TODO Auto-generated method stub
+		this.libroRepository.actualizar(libro);
 
 	}
 
 	@Override
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
+		this.libroRepository.eliminar(id);
 
 	}
 
