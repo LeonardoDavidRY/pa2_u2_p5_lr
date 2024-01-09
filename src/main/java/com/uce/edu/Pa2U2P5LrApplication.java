@@ -14,12 +14,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.repository.modelo.Alumno;
 import com.uce.edu.repository.modelo.Autor;
+import com.uce.edu.repository.modelo.Autor2;
+import com.uce.edu.repository.modelo.AutorLibro;
 import com.uce.edu.repository.modelo.Ciudadano;
 import com.uce.edu.repository.modelo.Empleado;
 import com.uce.edu.repository.modelo.Estudiante;
 import com.uce.edu.repository.modelo.Habitacion;
 import com.uce.edu.repository.modelo.Hotel;
 import com.uce.edu.repository.modelo.Libro;
+import com.uce.edu.repository.modelo.Libro2;
 import com.uce.edu.service.IAlumnoService;
 import com.uce.edu.service.ICiudadanoService;
 import com.uce.edu.service.IEmpleadoService;
@@ -41,35 +44,43 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Libro libro = new Libro();
-		libro.setTitulo("Java");
+		Libro2 libro = new Libro2();
+		libro.setTitulo("Java2");
 		libro.setFechaPublicacion(LocalDateTime.now());
 		
-		Autor autor1 = new Autor();
-		autor1.setNacionalidad("Ecuatoriano");
-		autor1.setNombre("Pepito Perez");
+		Autor2 autor1 = new Autor2();
+		autor1.setNacionalidad("Ecuatoriano 2");
+		autor1.setNombre("Pepito Perez 2");
 		
-		Autor autor2 = new Autor();
+		Autor2 autor2 = new Autor2();
 		autor2.setNacionalidad("Ecuatoriano");
 		autor2.setNombre("Daniel Teran");
 		
-		Set<Autor> autores = new HashSet<Autor>();
+		Set<Autor2> autores = new HashSet<Autor2>();
 		
 		autores.add(autor1);
 		autores.add(autor2);
 		
-		libro.setAutores(autores);
+		AutorLibro autorLibro1 = new AutorLibro();
+		autorLibro1.setLibro2(libro);
+		autorLibro1.setAutor2(autor1);
+		autorLibro1.setFecha(LocalDateTime.now());
 		
-		Set<Libro> libros = new HashSet<Libro>();
+		AutorLibro autorLibro2 = new AutorLibro();
+		autorLibro2.setLibro2(libro);
+		autorLibro2.setAutor2(autor2);
+		autorLibro2.setFecha(LocalDateTime.now());
 		
-		libros.add(libro);		
+		List<AutorLibro> lista = new ArrayList<>();
+		lista.add(autorLibro1);
+		lista.add(autorLibro2);
 		
-		autor1.setLibros(libros);
-		autor2.setLibros(libros);
+		libro.setAutoresLibros(lista);
 		
-		this.iLibroService.guardar(libro);
+		//this.iLibroService.guardar(libro);
 		
-		
+		Libro libroFinal = this.iLibroService.buscarPorNombre("Java");
+		System.out.println(libroFinal);
 		
 	}
 
