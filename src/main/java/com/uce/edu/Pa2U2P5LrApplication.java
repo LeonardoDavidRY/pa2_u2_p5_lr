@@ -42,7 +42,7 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	// 3.- Criteria API Query
 	
 	@Autowired
-	private ILibroService iLibroService;
+	private ICiudadanoService iCiudadanoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5LrApplication.class, args);
@@ -51,30 +51,10 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		System.out.println("Query");
-		List<Libro> lista=this.iLibroService.buscarPorFecha(LocalDateTime.of(2023, 1, 7, 1, 1));
+		Empleado empleado = this.iCiudadanoService.buscarPorCedula("1723353825");
+		System.out.println(empleado);
 		
-		for(Libro libro :lista ) {
-			System.out.println(libro);
-		}
-		System.out.println("TypedQuery");
 		
-		Libro li1 = this.iLibroService.buscarPorTilulo("JAVA AVANZADO I");
-		System.out.println(li1);
-		
-		List<Libro> lista2= this.iLibroService.buscarPorFechaPublic(LocalDateTime.of(2023, 1, 7, 1, 1));
-		for(Libro libro :lista2) {
-			System.out.println(libro);
-		}
-		System.out.println("NamedQuery");
-		
-		Libro li2 = this.iLibroService.buscarPorTiluloNamed("JAVA");
-		System.out.println(li2);
-		
-		List<Libro> lista3= this.iLibroService.buscarPorFechaPublicNamed(LocalDateTime.of(2023, 1, 7, 1, 1));
-		for(Libro libro :lista3) {
-			System.out.println(libro);
-		}
 	}
 
 }
