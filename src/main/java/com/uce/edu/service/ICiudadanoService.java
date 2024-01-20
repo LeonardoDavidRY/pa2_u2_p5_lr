@@ -14,5 +14,11 @@ public interface ICiudadanoService {
 	public void borrar(Integer id);
 	
 	public Empleado buscarPorCedula(String cedula);
+	
+	public Ciudadano buscarPorCedulaCiu(String cedula);
+	
+	public Ciudadano buscarPorNombre(String nombre);
+	
+	public Ciudadano buscarPorApellido(String apellido);
 
 }

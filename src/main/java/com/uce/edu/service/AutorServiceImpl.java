@@ -1,5 +1,7 @@
 package com.uce.edu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,12 @@ public class AutorServiceImpl implements IAutorService {
 		// TODO Auto-generated method stub
 		this.autorRepository.eliminar(id);
 
+	}
+
+	@Override
+	public List<Autor> buscarPorNacionalidad(String nacionalidad) {
+		// TODO Auto-generated method stub
+		return this.autorRepository.seleccionarPorNacionalidad(nacionalidad);
 	}
 
 }

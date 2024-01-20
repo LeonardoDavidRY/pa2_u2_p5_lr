@@ -58,6 +58,11 @@ public class Ciudadano {
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
+	@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+  "]";
+	}
 	
 
 }

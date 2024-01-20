@@ -1,11 +1,15 @@
 package com.uce.edu.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.repository.modelo.Autor;
+import com.uce.edu.repository.modelo.Habitacion;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 @Repository
 @Transactional
@@ -40,6 +44,15 @@ public class AutorRepositoryImpl implements IAutorRepository {
 		Autor autor = this.seleccionar(id);
 		this.entityManager.remove(autor);
 
+	}
+
+	@Override
+	public List<Autor> seleccionarPorNacionalidad(String nacionalidad) {
+		// TODO Auto-generated method stub
+		TypedQuery <Autor> myQuery =this.entityManager.createQuery("SELECT a FROM Autor a WHERE a.nacionalidad= :natal", Autor.class);
+		myQuery.setParameter("natal", nacionalidad);
+		
+		return myQuery.getResultList();
 	}
 
 }

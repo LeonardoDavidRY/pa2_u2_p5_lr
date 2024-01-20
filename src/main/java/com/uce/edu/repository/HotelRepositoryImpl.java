@@ -2,10 +2,12 @@ package com.uce.edu.repository;
 
 import org.springframework.stereotype.Repository;
 
+import com.uce.edu.repository.modelo.Ciudadano;
 import com.uce.edu.repository.modelo.Hotel;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 @Repository
 @Transactional
@@ -41,6 +43,22 @@ public class HotelRepositoryImpl implements IHotelRepository {
 		Hotel hotel = this.seleccionar(id);
 		this.entityManager.remove(hotel);
 
+	}
+
+	@Override
+	public Hotel seleccionarPorDireccion(String direccion) {
+		// TODO Auto-generated method stub
+		Query myQuery =this.entityManager.createNativeQuery("SELECT * FROM hotal h WHERE h.hote_direccion  = :direccion ", Hotel.class);
+		myQuery.setParameter("direccion", direccion);
+		return (Hotel) myQuery.getSingleResult();
+	}
+
+	@Override
+	public Hotel seleccionarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		Query myQuery =this.entityManager.createNativeQuery("SELECT * FROM hotal h WHERE h.hote_nombre  = :nombre ", Hotel.class);
+		myQuery.setParameter("nombre", nombre);
+		return (Hotel) myQuery.getSingleResult();
 	}
 
 }

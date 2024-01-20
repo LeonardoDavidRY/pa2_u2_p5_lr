@@ -1,5 +1,9 @@
 package com.uce.edu.repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
 import com.uce.edu.repository.modelo.Empleado;
 
 public interface IEmpleadoRepository {
@@ -11,5 +15,9 @@ public interface IEmpleadoRepository {
 	public void actualizar(Empleado empleado);
 
 	public void eliminar(Integer id);
+	
+	public List<Empleado> seleccionarPorEmpleadoSalario(BigDecimal salario);
+	
+	public List<Empleado> seleccionarPorFechaIngreso(LocalDateTime fechaIngreso );
 
 }
