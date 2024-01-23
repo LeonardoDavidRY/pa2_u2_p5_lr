@@ -46,6 +46,12 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Autowired
 	private ICiudadanoService iCiudadanoService;
 	
+	@Autowired
+	private IHotelService iHotelService;
+
+	@Autowired
+	private IHabitacionService iHabitacionService;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5LrApplication.class, args);
@@ -54,24 +60,30 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Ciudadano ciu = this.iCiudadanoService.buscarPorApellido("Ramirez");
-		System.out.println(ciu);
+		System.out.println("Critica API Query: Ciudadano cedula");
 		
-		Ciudadano ciu1 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "1723353825");
-		System.out.println(ciu1);
+		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1723353825");
+		System.out.println(ciudadano);
 		
-		Ciudadano ciu2 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "0523353825");
-		System.out.println(ciu2);
+		System.out.println("Critica API Query: Ciudadano Nombre");
 		
-		//Ciudadano ciu3 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "1723353825");
-		//System.out.println(ciu3);
+		Ciudadano ciudadano3 = this.iCiudadanoService.buscarPorNombre("Leonardo");
+		System.out.println(ciudadano3);
 		
-		System.out.println("Criteria API Query AND OR");
-		Ciudadano ciu4 = this.iCiudadanoService.buscarPorCriteriaAndOr("Leonardo", "Ramirez", "1723353825");
-		System.out.println(ciu4);
+		System.out.println("Critica API Query: Hotel Nombre");
 		
-		Ciudadano ciu5 = this.iCiudadanoService.buscarPorCriteriaAndOr("Leonardo", "Ramirez", "0523353825");
-		System.out.println(ciu5);
+		Hotel hotel1 = this.iHotelService.buscarPorNombre("Marriet");
+		System.out.println(hotel1);
+		
+		System.out.println("Critica API Query: Hotel direccion");
+
+		Hotel hotel2 = this.iHotelService.buscarPorDireccion("Av. Florida");
+		System.out.println(hotel2);
+		
+		System.out.println("Critica API Query: Habitacion numero");
+
+		Habitacion hab1 = this.iHabitacionService.buscarPorNumero("A2");
+		System.out.println(hab1);
 	}
 
 }
