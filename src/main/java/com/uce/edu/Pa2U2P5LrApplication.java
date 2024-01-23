@@ -46,17 +46,6 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Autowired
 	private ICiudadanoService iCiudadanoService;
 	
-	@Autowired
-	private IEmpleadoService iEmpleadoService;
-	
-	@Autowired
-	private IHotelService iHotelService;
-	
-	@Autowired
-	private IHabitacionService iHabitacionService;
-	
-	@Autowired
-	private IAutorService iAutorService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5LrApplication.class, args);
@@ -65,49 +54,24 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		Ciudadano ciu = this.iCiudadanoService.buscarPorApellido("Ramirez");
+		System.out.println(ciu);
 		
-		Empleado empleado = this.iCiudadanoService.buscarPorCedula("1723353825");
-		System.out.println(empleado);
-		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1723353825");
-		System.out.println(ciudadano);
-		Ciudadano ciudadano2 = this.iCiudadanoService.buscarPorApellido("Ramirez");
-		System.out.println(ciudadano2);
-		Ciudadano ciudadano3 = this.iCiudadanoService.buscarPorNombre("Leonardo");
-		System.out.println(ciudadano3);
+		Ciudadano ciu1 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "1723353825");
+		System.out.println(ciu1);
 		
-        List<Empleado> reporte = this.iEmpleadoService.buscarPorFechaIngreso(LocalDateTime.of(2023, 1, 7, 1, 1));
+		Ciudadano ciu2 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "0523353825");
+		System.out.println(ciu2);
 		
-		for(Empleado empleados: reporte) {
-			System.out.println(empleados);
-		}
+		//Ciudadano ciu3 = this.iCiudadanoService.buscarPorCriteria("Leonardo", "Ramirez", "1723353825");
+		//System.out.println(ciu3);
 		
-        List<Empleado> reporte2 = this.iEmpleadoService.buscarPorEmpleadoSalario(new BigDecimal (15));
+		System.out.println("Criteria API Query AND OR");
+		Ciudadano ciu4 = this.iCiudadanoService.buscarPorCriteriaAndOr("Leonardo", "Ramirez", "1723353825");
+		System.out.println(ciu4);
 		
-		for(Empleado empleados: reporte2) {
-			System.out.println(empleados);
-		}
-		
-		Hotel hotel1 = this.iHotelService.buscarPorNombre("Marriet");
-		System.out.println(hotel1);
-		
-		Hotel hotel2 = this.iHotelService.buscarPorDireccion("Av. Florida");
-		System.out.println(hotel2);
-		
-		Habitacion hab1 = this.iHabitacionService.buscarPorNumero("A2");
-		System.out.println(hab1);
-		
-		List<Habitacion> habitaciones = this.iHabitacionService.buscarPorClase("Economica");
-		
-		for(Habitacion habita: habitaciones) {
-			System.out.println(habita);
-		}
-		
-		List<Autor> autoresAutors = this.iAutorService.buscarPorNacionalidad("Ecuatoriano");
-		
-		for(Autor autores: autoresAutors) {
-			System.out.println(autores);
-		}
-		
+		Ciudadano ciu5 = this.iCiudadanoService.buscarPorCriteriaAndOr("Leonardo", "Ramirez", "0523353825");
+		System.out.println(ciu5);
 	}
 
 }
