@@ -1,5 +1,7 @@
 package com.uce.edu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +52,30 @@ public class HotelServiceImpl implements IHotelService {
 	public Hotel buscarPorNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return this.hotelRepository.seleccionarPorNombre(nombre);
+	}
+
+	@Override
+	public List<Hotel> buscarPorClaseinnerJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorClaseinnerJoin(claseHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorClaseLeftJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorClaseLeftJoin(claseHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorNumeroRightJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorNumeroRightJoin(numeroHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorNumeroFullJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorNumeroFullJoin(numeroHabitacion);
 	}
 
 }

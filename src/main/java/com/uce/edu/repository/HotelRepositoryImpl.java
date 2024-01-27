@@ -1,5 +1,7 @@
 package com.uce.edu.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.repository.modelo.Hotel;
@@ -105,4 +107,41 @@ public class HotelRepositoryImpl implements IHotelRepository {
 		return myTypedQuery.getSingleResult();
 	}
 
+	@Override
+	public List<Hotel> seleccionarPorClaseinnerJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h INNER JOIN h.habitaciones hab WHERE hab.clase = :claseHabitacion", Hotel.class);
+	    query.setParameter("claseHabitacion", claseHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorClaseLeftJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h LEFT JOIN h.habitaciones hab WHERE hab.clase = :claseHabitacion", Hotel.class);
+	    query.setParameter("claseHabitacion", claseHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorNumeroRightJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h RIGHT JOIN h.habitaciones hab WHERE hab.numero = :numeroHabitacion", Hotel.class);
+	    query.setParameter("numeroHabitacion", numeroHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorNumeroFullJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h fULL JOIN h.habitaciones hab WHERE hab.numero = :numeroHabitacion", Hotel.class);
+	    query.setParameter("numeroHabitacion", numeroHabitacion);
+	    return query.getResultList();
+	}
+
+	
 }

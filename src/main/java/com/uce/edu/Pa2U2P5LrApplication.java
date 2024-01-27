@@ -60,6 +60,29 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		
+		System.out.println("INNER JOIN");
+		List<Hotel> hoteClase = this.iHotelService.buscarPorClaseinnerJoin("Economica");
+		for(Hotel h :hoteClase ) {
+			System.out.println(h);
+		}
+		System.out.println("LEFT JOIN");
+		List<Hotel> hoteClase2 = this.iHotelService.buscarPorClaseLeftJoin("Presidencial");
+		for(Hotel h :hoteClase2 ) {
+			System.out.println(h);
+		}
+		System.out.println("RIGHT JOIN");
+		List<Hotel> hoteNumero = this.iHotelService.buscarPorNumeroRightJoin("A1");
+		for(Hotel h :hoteNumero) {
+			System.out.println(h);
+		}
+		System.out.println("FULL JOIN");
+		List<Hotel> hoteNumero2 = this.iHotelService.buscarPorNumeroFullJoin("A2");
+		for(Hotel h :hoteNumero2 ) {
+			System.out.println(h);
+		}
+		/*
+		
 		System.out.println("Critica API Query: Ciudadano cedula");
 		
 		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1723353825");
@@ -84,6 +107,8 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 
 		Habitacion hab1 = this.iHabitacionService.buscarPorNumero("A2");
 		System.out.println(hab1);
+		
+		*/
 	}
 
 }
