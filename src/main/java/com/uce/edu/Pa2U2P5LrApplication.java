@@ -62,13 +62,24 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 		
 		
 		System.out.println("INNER JOIN");
+		
 		List<Hotel> hoteClase = this.iHotelService.buscarPorClaseinnerJoin("Economica");
 		for(Hotel h :hoteClase ) {
 			System.out.println(h);
 		}
-		System.out.println("LEFT JOIN");
-		List<Hotel> hoteClase2 = this.iHotelService.buscarPorClaseLeftJoin("Presidencial");
+		
+		List<Hotel> hoteClase2 = this.iHotelService.buscarPorNumeroinnerJoin("A1");
 		for(Hotel h :hoteClase2 ) {
+			System.out.println(h);
+		}
+		System.out.println("LEFT JOIN");
+		
+		List<Hotel> hoteClase3 = this.iHotelService.buscarPorClaseLeftJoin("Presidencial");
+		for(Hotel h :hoteClase3 ) {
+			System.out.println(h);
+		}
+		List<Hotel> hoteClase4 = this.iHotelService.buscarPorNumeroLeftJoin("A1");
+		for(Hotel h :hoteClase4 ) {
 			System.out.println(h);
 		}
 		System.out.println("RIGHT JOIN");
@@ -76,39 +87,30 @@ public class Pa2U2P5LrApplication implements CommandLineRunner{
 		for(Hotel h :hoteNumero) {
 			System.out.println(h);
 		}
-		System.out.println("FULL JOIN");
-		List<Hotel> hoteNumero2 = this.iHotelService.buscarPorNumeroFullJoin("A2");
-		for(Hotel h :hoteNumero2 ) {
+		List<Hotel> hoteNumero2 = this.iHotelService.buscarPorClaseRightJoin("Economica");
+		for(Hotel h :hoteNumero2) {
 			System.out.println(h);
 		}
-		/*
+		System.out.println("FULL JOIN");
+		List<Hotel> hoteNumero3 = this.iHotelService.buscarPorNumeroFullJoin("A2");
+		for(Hotel h :hoteNumero3 ) {
+			System.out.println(h);
+		}
+		List<Hotel> hoteNumero4 = this.iHotelService.buscarPorClaseFullJoin("Presidencial");
+		for(Hotel h :hoteNumero4 ) {
+			System.out.println(h);
+		}
 		
-		System.out.println("Critica API Query: Ciudadano cedula");
+		System.out.println("FETCH JOIN");
+		List<Hotel> hoteClase5 = this.iHotelService.buscarPorNumerofetchJoin("A2");
+		for(Hotel h :hoteClase5 ) {
+			System.out.println(h);
+		}
+		List<Hotel> hoteNumero5 = this.iHotelService.buscarPorClasefetchJoin("Presidencial");
+		for(Hotel h :hoteNumero5 ) {
+			System.out.println(h);
+		}
 		
-		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1723353825");
-		System.out.println(ciudadano);
-		
-		System.out.println("Critica API Query: Ciudadano Nombre");
-		
-		Ciudadano ciudadano3 = this.iCiudadanoService.buscarPorNombre("Leonardo");
-		System.out.println(ciudadano3);
-		
-		System.out.println("Critica API Query: Hotel Nombre");
-		
-		Hotel hotel1 = this.iHotelService.buscarPorNombre("Marriet");
-		System.out.println(hotel1);
-		
-		System.out.println("Critica API Query: Hotel direccion");
-
-		Hotel hotel2 = this.iHotelService.buscarPorDireccion("Av. Florida");
-		System.out.println(hotel2);
-		
-		System.out.println("Critica API Query: Habitacion numero");
-
-		Habitacion hab1 = this.iHabitacionService.buscarPorNumero("A2");
-		System.out.println(hab1);
-		
-		*/
 	}
 
 }

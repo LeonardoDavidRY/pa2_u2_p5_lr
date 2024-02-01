@@ -22,10 +22,22 @@ public interface IHotelRepository {
 	
 	public List<Hotel> seleccionarPorClaseinnerJoin(String claseHabitacion);
 	
+	public List<Hotel> seleccionarPorNumeroinnerJoin(String numeroHabitacion);
+	
 	public List<Hotel> seleccionarPorClaseLeftJoin(String claseHabitacion);
+	
+	public List<Hotel> seleccionarPorNumeroLeftJoin(String numeroHabitacion);
 	
 	public List<Hotel> seleccionarPorNumeroRightJoin(String numeroHabitacion);
 	
+	public List<Hotel> seleccionarPorClaseRightJoin(String claseHabitacion);
+	
 	public List<Hotel> seleccionarPorNumeroFullJoin(String numeroHabitacion);
+	
+	public List<Hotel> seleccionarPorClaseFullJoin(String claseHabitacion);
+	
+	public List<Hotel> seleccionarPorNumerofetchJoin(String numeroHabitacion);
+	
+	public List<Hotel> seleccionarPorClasefetchJoin(String claseHabitacion);
 
 }

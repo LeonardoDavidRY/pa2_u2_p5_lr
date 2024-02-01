@@ -78,4 +78,40 @@ public class HotelServiceImpl implements IHotelService {
 		return this.hotelRepository.seleccionarPorNumeroFullJoin(numeroHabitacion);
 	}
 
+	@Override
+	public List<Hotel> buscarPorNumeroinnerJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorNumeroinnerJoin(numeroHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorNumeroLeftJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorNumeroLeftJoin(numeroHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorClaseRightJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorClaseRightJoin(claseHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorClaseFullJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorClaseFullJoin(claseHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorNumerofetchJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorNumerofetchJoin(numeroHabitacion);
+	}
+
+	@Override
+	public List<Hotel> buscarPorClasefetchJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarPorClasefetchJoin(claseHabitacion);
+	}
+
 }

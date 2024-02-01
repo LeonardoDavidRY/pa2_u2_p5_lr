@@ -143,5 +143,59 @@ public class HotelRepositoryImpl implements IHotelRepository {
 	    return query.getResultList();
 	}
 
+	@Override
+	public List<Hotel> seleccionarPorNumeroinnerJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h INNER JOIN h.habitaciones hab WHERE hab.numero = :numeroHabitacion", Hotel.class);
+	    query.setParameter("numeroHabitacion", numeroHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorNumeroLeftJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h LEFT JOIN h.habitaciones hab WHERE hab.numero = :numeroHabitacion", Hotel.class);
+	    query.setParameter("numeroHabitacion", numeroHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorClaseRightJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h RIGHT JOIN h.habitaciones hab WHERE hab.clase = :claseHabitacion", Hotel.class);
+	    query.setParameter("claseHabitacion", claseHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorClaseFullJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT h FROM Hotel h FULL JOIN h.habitaciones hab WHERE hab.clase = :claseHabitacion", Hotel.class);
+	    query.setParameter("claseHabitacion", claseHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorNumerofetchJoin(String numeroHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT DISTINCT h FROM Hotel h JOIN FETCH h.habitaciones hab WHERE hab.numero = :numeroHabitacion", Hotel.class);
+	    query.setParameter("numeroHabitacion", numeroHabitacion);
+	    return query.getResultList();
+	}
+
+	@Override
+	public List<Hotel> seleccionarPorClasefetchJoin(String claseHabitacion) {
+		// TODO Auto-generated method stub
+		TypedQuery<Hotel> query = entityManager.createQuery(
+	            "SELECT DISTINCT h FROM Hotel h INNER JOIN FETCH h.habitaciones hab WHERE hab.clase = :claseHabitacion", Hotel.class);
+	    query.setParameter("claseHabitacion", claseHabitacion);
+	    return query.getResultList();
+	}
+
 	
 }
